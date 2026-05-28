@@ -41,7 +41,7 @@ const TaskModal = ({ task, onClose }) => {
     } else {
       reset();
     }
-  }, [[task, reset, setValues]]);
+  }, [task, reset, setValues]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

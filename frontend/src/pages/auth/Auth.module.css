@@ -1,0 +1,92 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -20%, rgba(124, 106, 247, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(52, 211, 153, 0.05), transparent);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.logo {
+  color: var(--accent);
+  font-size: 22px;
+}
+
+.brandName {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.heading {
+  text-align: center;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.sub {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.alert {
+  background: var(--danger-dim);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  color: var(--danger);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-size: 13px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.switch {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.link {
+  color: var(--accent-light);
+  font-weight: 500;
+  transition: color 0.1s;
+}
+
+.link:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 440px) {
+  .card { padding: 28px 20px; }
+}

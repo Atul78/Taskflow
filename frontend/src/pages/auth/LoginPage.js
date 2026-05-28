@@ -9,7 +9,8 @@ import styles from "./Auth.module.css";
 const validate = (values) => {
   const errors = {};
   if (!values.email.trim()) errors.email = "Email is required";
-  else if (!/^\S+@\S+\.\S+$/.test(values.email)) errors.email = "Enter a valid email";
+  else if (!/^\S+@\S+\.\S+$/.test(values.email))
+    errors.email = "Enter a valid email";
   if (!values.password) errors.password = "Password is required";
   return errors;
 };
@@ -19,10 +20,8 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const [serverError, setServerError] = useState("");
 
-  const { values, errors, touched, handleChange, handleBlur, validateAll } = useForm(
-    { email: "", password: "" },
-    validate
-  );
+  const { values, errors, touched, handleChange, handleBlur, validateAll } =
+    useForm({ email: "", password: "" }, validate);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,9 +48,7 @@ const LoginPage = () => {
           <p className={styles.sub}>Sign in to your account to continue</p>
         </div>
 
-        {serverError && (
-          <div className={styles.alert}>{serverError}</div>
-        )}
+        {serverError && <div className={styles.alert}>{serverError}</div>}
 
         <form onSubmit={handleSubmit} className={styles.form} noValidate>
           <Input
@@ -85,7 +82,9 @@ const LoginPage = () => {
 
         <p className={styles.switch}>
           Don't have an account?{" "}
-          <Link to="/signup" className={styles.link}>Create one</Link>
+          <Link to="/signup" className={styles.link}>
+            Create one
+          </Link>
         </p>
       </div>
     </div>

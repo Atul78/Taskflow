@@ -8,7 +8,8 @@ import styles from "./TaskModal.module.css";
 const validate = (values) => {
   const errors = {};
   if (!values.title.trim()) errors.title = "Title is required";
-  else if (values.title.trim().length < 3) errors.title = "Title must be at least 3 characters";
+  else if (values.title.trim().length < 3)
+    errors.title = "Title must be at least 3 characters";
   return errors;
 };
 
@@ -18,8 +19,16 @@ const TaskModal = ({ task, onClose }) => {
   const { createTask, updateTask } = useTask();
   const isEditing = Boolean(task);
 
-  const { values, errors, touched, handleChange, handleBlur, validateAll, reset, setValues } =
-    useForm(INITIAL, validate);
+  const {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleBlur,
+    validateAll,
+    reset,
+    setValues,
+  } = useForm(INITIAL, validate);
 
   useEffect(() => {
     if (task) {
@@ -32,7 +41,7 @@ const TaskModal = ({ task, onClose }) => {
     } else {
       reset();
     }
-  }, [task]);
+  }, [[task, reset, setValues]]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,12 +62,24 @@ const TaskModal = ({ task, onClose }) => {
   };
 
   return (
-    <div className={styles.overlay} onClick={(e) => e.target === e.currentTarget && onClose()}>
+    <div
+      className={styles.overlay}
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
       <div className={styles.modal}>
         <div className={styles.header}>
-          <h2 className={styles.title}>{isEditing ? "Edit Task" : "New Task"}</h2>
+          <h2 className={styles.title}>
+            {isEditing ? "Edit Task" : "New Task"}
+          </h2>
           <button className={styles.closeBtn} onClick={onClose}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
